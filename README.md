@@ -1,8 +1,4 @@
 # driver_manager
 
-A new Flutter project.
+A Flutter App that manages delivery drivers.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
