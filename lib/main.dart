@@ -1,65 +1,86 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() => runApp(new DriverManager());
 
 class DriverManager extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Driver Manager',
+      title: 'Drawer Layout with Tabs',
       theme: new ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[900],
-        accentColor: Colors.cyan[900],
+        primaryColor: Colors.green,
       ),
-      home: new MyHomePage(title: 'Driver Manager'),
+      home: MyHomePage(title: "Driver Manager"),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
+class MyHomePage extends StatelessWidget {
   final String title;
 
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+    return Scaffold(
+        appBar: new AppBar(
+          title: Text(title),
+          centerTitle: true,
         ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ),
-    );
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              DrawerHeader(
+                child: Text(
+                  "Hello Andy!!",
+                  textAlign: TextAlign.justify,
+                  textScaleFactor: 2.0,
+                ),
+                decoration: BoxDecoration(color: Colors.green),
+              ),
+              ListTile(
+                title: Text("First"),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text("Second"),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        ),
+        body: new DefaultTabController(
+          length: 5,
+          child: new Scaffold(
+            appBar: new AppBar(
+              actions: <Widget>[],
+              title: new TabBar(
+                tabs: [
+                  new Tab(icon: new Icon(Icons.home)),
+                  new Tab(icon: new Icon(Icons.access_time)),
+                  new Tab(icon: new Icon(Icons.calendar_today)),
+                  new Tab(icon: new Icon(Icons.build)),
+                  new Tab(icon: new Icon(Icons.attach_money)),
+                ],
+                indicatorColor: Colors.white,
+              ),
+            ),
+            body: new TabBarView(
+              children: [
+                new Icon(Icons.home, size: 50.0,),
+                new Icon(Icons.access_time,size: 50.0,),
+                new Icon(Icons.calendar_today,size: 50.0,),
+                new Icon(Icons.build,size: 50.0,),
+                new Icon(Icons.attach_money,size: 50.0,),
+              ],
+            ),
+          ),
+        ));
   }
 }
