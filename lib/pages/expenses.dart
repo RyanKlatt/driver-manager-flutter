@@ -8,11 +8,11 @@ class Expenses extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         new Icon(
-          Icons.home,
+          Icons.attach_money,
           size: 150.0,
-          color: Colors.black12
+          color: Colors.green
         ),
-        new Text('Home tab content')
+        new Text('Expenses tab content')
       ],
     )
   );

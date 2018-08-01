@@ -8,11 +8,11 @@ class TimeClock extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         new Icon(
-          Icons.home,
+          Icons.access_time,
           size: 150.0,
           color: Colors.black12
         ),
-        new Text('Home tab content')
+        new Text('Time Clock tab content')
       ],
     )
   );

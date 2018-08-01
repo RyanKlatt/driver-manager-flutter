@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'pages/home_page.dart';
+import 'pages/time_clock.dart';
+import 'pages/calendar.dart';
+import 'pages/maintenance.dart';
+import 'pages/expenses.dart';
 
 void main() => runApp(new DriverManager());
 
@@ -10,7 +14,9 @@ class DriverManager extends StatelessWidget {
     return new MaterialApp(
       title: 'Drawer Layout with Tabs',
       theme: new ThemeData(
-        primaryColor: Colors.green,
+        primaryColor: Colors.blue[900],
+        accentColor: Colors.grey[800],
+        brightness: Brightness.dark
       ),
       home: MyHomePage(title: "Driver Manager"),
     );
@@ -34,20 +40,26 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               DrawerHeader(
                 child: Text(
-                  "Hello Andy!!",
+                  "Ryan Klatt",
                   textAlign: TextAlign.justify,
                   textScaleFactor: 2.0,
                 ),
-                decoration: BoxDecoration(color: Colors.green),
+                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
               ),
               ListTile(
-                title: Text("First"),
+                title: Text("Profile"),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: Text("Second"),
+                title: Text("Settings"),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text("Logout"),
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -73,11 +85,11 @@ class MyHomePage extends StatelessWidget {
             ),
             body: new TabBarView(
               children: [
-                new Icon(Icons.home, size: 50.0,),
-                new Icon(Icons.access_time,size: 50.0,),
-                new Icon(Icons.calendar_today,size: 50.0,),
-                new Icon(Icons.build,size: 50.0,),
-                new Icon(Icons.attach_money,size: 50.0,),
+                new Home(),
+                new TimeClock(),
+                new Calendar(),
+                new Maintenance(),
+                new Expenses(),
               ],
             ),
           ),
