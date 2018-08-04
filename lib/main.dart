@@ -14,7 +14,7 @@ class DriverManager extends StatelessWidget {
     return new MaterialApp(
       title: 'Drawer Layout with Tabs',
       theme: new ThemeData(
-        primaryColor: Colors.blue[900],
+        primaryColor: Colors.blueGrey[800],
         accentColor: Colors.grey[800],
         brightness: Brightness.dark
       ),
@@ -48,18 +48,21 @@ class MyHomePage extends StatelessWidget {
               ),
               ListTile(
                 title: Text("Profile"),
+                leading: Icon(Icons.person),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 title: Text("Settings"),
+                leading: Icon(Icons.settings),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 title: Text("Logout"),
+                leading: Icon(Icons.exit_to_app),
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -76,9 +79,9 @@ class MyHomePage extends StatelessWidget {
                 tabs: [
                   new Tab(icon: new Icon(Icons.home)),
                   new Tab(icon: new Icon(Icons.access_time)),
-                  new Tab(icon: new Icon(Icons.calendar_today)),
                   new Tab(icon: new Icon(Icons.build)),
                   new Tab(icon: new Icon(Icons.attach_money)),
+                  new Tab(icon: new Icon(Icons.calendar_today)),
                 ],
                 indicatorColor: Colors.white,
               ),
@@ -87,9 +90,9 @@ class MyHomePage extends StatelessWidget {
               children: [
                 new Home(),
                 new TimeClock(),
-                new Calendar(),
                 new Maintenance(),
                 new Expenses(),
+                new Calendar(),
               ],
             ),
           ),

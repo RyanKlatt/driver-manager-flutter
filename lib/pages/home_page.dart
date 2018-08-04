@@ -2,33 +2,37 @@ import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => new Column (
+  Widget build(BuildContext context) => new ListView (
     children: [Card(
       color: Theme.of(context).accentColor,
       child: new Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const ListTile(
-            leading: const Icon(Icons.access_time),
-            title: const Text('Time Clock'),
-            subtitle: const Text('You are currently clocked out!'),
+          new ListTile(
+            leading: Icon(Icons.access_time),
+            trailing: IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: () {
+                print('hello');
+              },
+            ),
+            title: Text('Time Clock'),
+            subtitle: Text('You are currently clocked out!'),
           ),
           new ButtonTheme.bar( // make buttons use the appropriate styles for cards
             child: new ButtonBar(
+              alignment: MainAxisAlignment.end,
               children: <Widget>[
                 new RaisedButton(
-                  child: const Text('Clock In'),
+                  child: new Text('Clock In', 
+                  style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
                   textColor: Colors.white,
-                  color: Colors.green,
+                  color: Colors.green[700],
+                  splashColor: Colors.green,
+                  padding: EdgeInsets.all(12.0),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
                   onPressed: () { /* ... */ },
                 ),
-                new RaisedButton(
-                  child: const Text('Clock Out'),
-                  textColor: Colors.white,
-                  color: Colors.red,
-                  onPressed: () { /* ... */ },
-                ),
               ],
             ),
           ),
@@ -40,45 +44,54 @@ class Home extends StatelessWidget {
       child: new Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const ListTile(
-            leading: const Icon(Icons.calendar_today),
-            title: const Text('Calendar'),
-            subtitle: const Text('Meeting on 8/8/2018'),
-          ),
-          new ButtonTheme.bar( // make buttons use the appropriate styles for cards
-            child: new ButtonBar(
-              children: <Widget>[
-                new FlatButton(
-                  child: const Text('View Calendar'),
-                  textColor: Colors.white,
-                  onPressed: () { /* ... */ },
-                ),
-              ],
+          new ListTile(
+            leading: Icon(Icons.build),
+            trailing: IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: () {
+                print('hello');
+              },
             ),
-          ),
-        ],
-      ),
-    ),
-    Card(
-      color: Theme.of(context).accentColor,
-      child: new Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const ListTile(
-            leading: const Icon(Icons.build),
             title: const Text('Maintenance'),
-            subtitle: const Text('Your last inspection was on 7/31/2018'),
+            subtitle: const Text('Last Inspection - 7/31/2018'),
           ),
           new ButtonTheme.bar( // make buttons use the appropriate styles for cards
             child: new ButtonBar(
+              alignment: MainAxisAlignment.end,
               children: <Widget>[
                 new FlatButton(
                   child: const Text('Add Inspection'),
                   textColor: Colors.white,
                   onPressed: () { /* ... */ },
                 ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+    Card(
+      color: Theme.of(context).accentColor,
+      child: new Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            leading: Icon(Icons.attach_money),
+            trailing: IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: () {
+                print('hello');
+              },
+            ),
+            title: const Text('Expenses'),
+            subtitle: const Text('Last Expense - 7/28/2018'),
+          ),
+          new ButtonTheme.bar( // make buttons use the appropriate styles for cards
+            child: new ButtonBar(
+              alignment: MainAxisAlignment.end,
+              children: <Widget>[
                 new FlatButton(
-                  child: const Text('View Previous Inspections'),
+                  child: const Text('Add Expense'),
                   textColor: Colors.white,
                   onPressed: () { /* ... */ },
                 ),
@@ -93,29 +106,19 @@ class Home extends StatelessWidget {
       child: new Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const ListTile(
-            leading: const Icon(Icons.attach_money),
-            title: const Text('Expenses'),
-            subtitle: const Text('Your last expense was recorded on 7/28/2018'),
-          ),
-          new ButtonTheme.bar( // make buttons use the appropriate styles for cards
-            child: new ButtonBar(
-              children: <Widget>[
-                new FlatButton(
-                  child: const Text('Add Expense'),
-                  textColor: Colors.white,
-                  onPressed: () { /* ... */ },
-                ),
-                new FlatButton(
-                  child: const Text('View Previous Expenses'),
-                  textColor: Colors.white,
-                  onPressed: () { /* ... */ },
-                ),
-              ],
+          new ListTile(
+            leading: Icon(Icons.calendar_today),
+            trailing: IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: () {
+                print('hello');
+              },
             ),
+            title: const Text('Calendar'),
+            subtitle: const Text('Meeting - 8/8/2018'),
           ),
         ],
       ),
-    )],
+    ),],
   );
 }
