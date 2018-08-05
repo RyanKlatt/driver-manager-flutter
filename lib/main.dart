@@ -12,9 +12,9 @@ class DriverManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Drawer Layout with Tabs',
+      title: 'Driver Manager',
       theme: new ThemeData(
-        primaryColor: Colors.blueGrey[800],
+        primaryColor: Colors.indigo[700],
         accentColor: Colors.grey[800],
         brightness: Brightness.dark
       ),
