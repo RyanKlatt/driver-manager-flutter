@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
+
 import 'pages/home_page.dart';
 import 'pages/time_clock.dart';
 import 'pages/calendar.dart';
@@ -11,28 +13,54 @@ class DriverManager extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Driver Manager',
-      theme: new ThemeData(
-        primaryColor: Colors.indigo[700],
-        accentColor: Colors.grey[800],
-        brightness: Brightness.dark
-      ),
-      home: MyHomePage(title: "Driver Manager"),
-    );
+    return new DynamicTheme(
+        defaultBrightness: Brightness.dark,
+        data: (brightness) => new ThemeData(
+              primaryColor: Colors.indigo[700],
+              accentColor: Colors.grey[800],
+              primaryColorDark: Colors.indigo[900],
+              brightness: brightness,
+            ),
+        themedWidgetBuilder: (context, theme) {
+          return new MaterialApp(
+            title: 'Driver Manager',
+            theme: theme,
+            home: new MyHomePage(title: 'Driver Manager'),
+          );
+        });
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   final String title;
 
   MyHomePage({Key key, this.title}) : super(key: key);
 
   @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _AppHomeState();
+  }
+}
+
+class _AppHomeState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
+    void changeColor() {
+      DynamicTheme.of(context).setThemeData(new ThemeData(
+          accentColor: Theme.of(context).accentColor == Colors.white
+              ? Colors.grey[800]
+              : Colors.white,
+          brightness: Theme.of(context).brightness == Brightness.light
+              ? Brightness.dark
+              : Brightness.light,
+          primaryColor: Colors.indigo[700],
+          primaryColorDark: Colors.indigo[900]));
+    }
+
     return Scaffold(
         appBar: new AppBar(
-          title: Text(title),
+          title: Text(widget.title),
           centerTitle: true,
         ),
         drawer: Drawer(
@@ -43,8 +71,10 @@ class MyHomePage extends StatelessWidget {
                   "Ryan Klatt",
                   textAlign: TextAlign.justify,
                   textScaleFactor: 2.0,
+                  style: new TextStyle(color: Colors.white),
                 ),
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+                decoration:
+                    BoxDecoration(color: Theme.of(context).primaryColor),
               ),
               ListTile(
                 title: Text("Profile"),
@@ -57,7 +87,7 @@ class MyHomePage extends StatelessWidget {
                 title: Text("Settings"),
                 leading: Icon(Icons.settings),
                 onTap: () {
-                  Navigator.pop(context);
+                  changeColor();
                 },
               ),
               ListTile(
