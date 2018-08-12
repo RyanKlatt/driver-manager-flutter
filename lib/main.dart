@@ -16,7 +16,7 @@ class DriverManager extends StatelessWidget {
         defaultBrightness: Brightness.light,
         data: (brightness) => new ThemeData(
               primaryColor: Colors.indigo[700],
-              accentColor: Colors.grey[800],
+              accentColor: Colors.white,
               primaryColorDark: Colors.indigo[900],
               brightness: brightness,
             ),
@@ -43,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _AppHomeState extends State<MyHomePage> {
-  bool _isDarkTheme;
+  bool _isDarkTheme = false;
 
   void initState() {
     super.initState();
@@ -53,16 +53,22 @@ class _AppHomeState extends State<MyHomePage> {
   _loadTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      _isDarkTheme = (prefs.getBool('isDark') ?? true);
+      _isDarkTheme = (prefs.getBool('isDark') ?? false);
       if (_isDarkTheme == false) {
         DynamicTheme.of(context).setThemeData(new ThemeData(
-            accentColor: Theme.of(context).accentColor == Colors.grey[800]
-                ? Colors.white
-                : Colors.white,
+            accentColor: Colors.white,
+            brightness: Brightness.light,
+            primaryColor: Colors.indigo[700],
+            primaryColorDark: Colors.indigo[900]));
+      } else {
+        DynamicTheme.of(context).setThemeData(new ThemeData(
+            accentColor: Colors.grey[800],
+            brightness: Brightness.dark,
             primaryColor: Colors.indigo[700],
             primaryColorDark: Colors.indigo[900]));
       }
     });
+    print(_isDarkTheme);
   }
 
   _saveTheme(bool themeValue) async {
