@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Card(
+          /*Card(
             color: Theme.of(context).accentColor,
             child: new Column(
               mainAxisSize: MainAxisSize.min,
@@ -190,7 +190,7 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-          ),
+          ),*/
         ],
       );
 }

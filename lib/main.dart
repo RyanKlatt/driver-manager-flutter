@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'pages/home_page.dart';
 import 'pages/time_clock.dart';
-import 'pages/calendar.dart';
 import 'pages/maintenance.dart';
 import 'pages/expenses.dart';
 
 void main() => runApp(new DriverManager());
 
 class DriverManager extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new DynamicTheme(
-        defaultBrightness: Brightness.dark,
+        defaultBrightness: Brightness.light,
         data: (brightness) => new ThemeData(
               primaryColor: Colors.indigo[700],
               accentColor: Colors.grey[800],
@@ -44,20 +43,51 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _AppHomeState extends State<MyHomePage> {
+  bool _isDarkTheme;
+
+  void initState() {
+    super.initState();
+    _loadTheme();
+  }
+
+  _loadTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _isDarkTheme = (prefs.getBool('isDark') ?? true);
+      if (_isDarkTheme == false) {
+        DynamicTheme.of(context).setThemeData(new ThemeData(
+            accentColor: Theme.of(context).accentColor == Colors.grey[800]
+                ? Colors.white
+                : Colors.white,
+            primaryColor: Colors.indigo[700],
+            primaryColorDark: Colors.indigo[900]));
+      }
+    });
+  }
+
+  _saveTheme(bool themeValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _isDarkTheme = (prefs.getBool('isDark') ?? false);
+    setState(() {
+      _isDarkTheme = themeValue;
+    });
+    prefs.setBool('isDark', _isDarkTheme);
+  }
+
+  void changeColor() {
+    DynamicTheme.of(context).setThemeData(new ThemeData(
+        accentColor: Theme.of(context).accentColor == Colors.white
+            ? Colors.grey[800]
+            : Colors.white,
+        brightness: Theme.of(context).brightness == Brightness.light
+            ? Brightness.dark
+            : Brightness.light,
+        primaryColor: Colors.indigo[700],
+        primaryColorDark: Colors.indigo[900]));
+  }
+
   @override
   Widget build(BuildContext context) {
-    void changeColor() {
-      DynamicTheme.of(context).setThemeData(new ThemeData(
-          accentColor: Theme.of(context).accentColor == Colors.white
-              ? Colors.grey[800]
-              : Colors.white,
-          brightness: Theme.of(context).brightness == Brightness.light
-              ? Brightness.dark
-              : Brightness.light,
-          primaryColor: Colors.indigo[700],
-          primaryColorDark: Colors.indigo[900]));
-    }
-
     return Scaffold(
         appBar: new AppBar(
           title: Text(widget.title),
@@ -87,7 +117,7 @@ class _AppHomeState extends State<MyHomePage> {
                 title: Text("Settings"),
                 leading: Icon(Icons.settings),
                 onTap: () {
-                  changeColor();
+                  print('hello');
                 },
               ),
               ListTile(
@@ -95,6 +125,19 @@ class _AppHomeState extends State<MyHomePage> {
                 leading: Icon(Icons.exit_to_app),
                 onTap: () {
                   Navigator.pop(context);
+                },
+              ),
+              new Divider(),
+              new SwitchListTile(
+                title: new Text('Dark Theme'),
+                activeColor: Theme.of(context).primaryColor,
+                value: _isDarkTheme,
+                onChanged: (bool themeValue) {
+                  setState(() {
+                    _isDarkTheme = themeValue;
+                    changeColor();
+                    _saveTheme(_isDarkTheme);
+                  });
                 },
               )
             ],
@@ -111,7 +154,6 @@ class _AppHomeState extends State<MyHomePage> {
                   new Tab(icon: new Icon(Icons.access_time)),
                   new Tab(icon: new Icon(Icons.build)),
                   new Tab(icon: new Icon(Icons.attach_money)),
-                  new Tab(icon: new Icon(Icons.calendar_today)),
                 ],
                 indicatorColor: Colors.white,
               ),
@@ -122,7 +164,6 @@ class _AppHomeState extends State<MyHomePage> {
                 new TimeClock(),
                 new Maintenance(),
                 new Expenses(),
-                new Calendar(),
               ],
             ),
           ),
