@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
                   },
                   leading: Icon(
                     Icons.access_time,
-                    size: 50.0,
+                    size: 40.0,
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
                   },
                   leading: Icon(
                     Icons.build,
-                    size: 50.0,
+                    size: 40.0,
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
                     'Maintenance',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
-                        fontSize: 19.0, fontWeight: FontWeight.bold),
+                        fontSize: 22.0, fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text(
                     'Last Inspection - 7/31/2018',
@@ -133,7 +133,7 @@ class _HomeState extends State<Home> {
                   },
                   leading: Icon(
                     Icons.attach_money,
-                    size: 50.0,
+                    size: 40.0,
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
@@ -145,7 +145,7 @@ class _HomeState extends State<Home> {
                     'Expenses',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
-                        fontSize: 19.0, fontWeight: FontWeight.bold),
+                        fontSize: 22.0, fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text(
                     'Last Expense - 7/28/2018',
