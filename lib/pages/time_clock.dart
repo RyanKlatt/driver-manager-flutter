@@ -21,7 +21,6 @@ class _TimeClockState extends State<TimeClock> {
       ),
       body: ListView(children: [
         Card(
-          color: Theme.of(context).accentColor,
           child: new Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -29,22 +28,16 @@ class _TimeClockState extends State<TimeClock> {
                 onTap: () {
                   print('hello');
                 },
-                leading: Icon(
-                  Icons.access_time,
-                  size: 40.0,
-                ),
-                trailing: IconButton(
-                  icon: Icon(Icons.arrow_forward_ios),
-                  onPressed: () {
-                    print('hello');
-                  },
-                ),
                 title: Text(
-                  'Time Clock',
+                  '00:00',
+                  textAlign: TextAlign.center,
                   style: new TextStyle(
-                      fontSize: 19.0, fontWeight: FontWeight.bold),
+                      fontSize: 40.0, fontWeight: FontWeight.bold),
                 ),
-                subtitle: Text('You are currently clocked out!'),
+                subtitle: Text(
+                  'You are currently clocked out!',
+                  textAlign: TextAlign.center,
+                ),
               ),
               new ButtonTheme.bar(
                 // make buttons use the appropriate styles for cards

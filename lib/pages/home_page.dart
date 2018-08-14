@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
                   },
                   leading: Icon(
                     Icons.access_time,
-                    size: 40.0,
+                    size: 50.0,
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
@@ -32,11 +32,15 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   title: Text(
-                    'Time Clock',
+                    '00:00',
+                    textAlign: TextAlign.center,
                     style: new TextStyle(
-                        fontSize: 19.0, fontWeight: FontWeight.bold),
+                        fontSize: 40.0, fontWeight: FontWeight.bold),
                   ),
-                  subtitle: Text('You are currently clocked out!'),
+                  subtitle: Text(
+                    'You are currently clocked out!',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 new ButtonTheme.bar(
                   // make buttons use the appropriate styles for cards
@@ -74,7 +78,7 @@ class _HomeState extends State<Home> {
                   },
                   leading: Icon(
                     Icons.build,
-                    size: 40.0,
+                    size: 50.0,
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
@@ -84,10 +88,14 @@ class _HomeState extends State<Home> {
                   ),
                   title: new Text(
                     'Maintenance',
+                    textAlign: TextAlign.center,
                     style: new TextStyle(
                         fontSize: 19.0, fontWeight: FontWeight.bold),
                   ),
-                  subtitle: const Text('Last Inspection - 7/31/2018'),
+                  subtitle: const Text(
+                    'Last Inspection - 7/31/2018',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 new ButtonTheme.bar(
                   // make buttons use the appropriate styles for cards
@@ -125,7 +133,7 @@ class _HomeState extends State<Home> {
                   },
                   leading: Icon(
                     Icons.attach_money,
-                    size: 40.0,
+                    size: 50.0,
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
@@ -135,10 +143,14 @@ class _HomeState extends State<Home> {
                   ),
                   title: new Text(
                     'Expenses',
+                    textAlign: TextAlign.center,
                     style: new TextStyle(
                         fontSize: 19.0, fontWeight: FontWeight.bold),
                   ),
-                  subtitle: const Text('Last Expense - 7/28/2018'),
+                  subtitle: const Text(
+                    'Last Expense - 7/28/2018',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 new ButtonTheme.bar(
                   // make buttons use the appropriate styles for cards

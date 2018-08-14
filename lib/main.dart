@@ -43,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _AppHomeState extends State<MyHomePage> {
-  bool _isDarkTheme = false;
+  bool _isDarkTheme;
 
   void initState() {
     super.initState();
@@ -76,6 +76,7 @@ class _AppHomeState extends State<MyHomePage> {
     _isDarkTheme = (prefs.getBool('isDark') ?? false);
     setState(() {
       _isDarkTheme = themeValue;
+      changeColor();
     });
     prefs.setBool('isDark', _isDarkTheme);
   }
@@ -141,7 +142,6 @@ class _AppHomeState extends State<MyHomePage> {
                 onChanged: (bool themeValue) {
                   setState(() {
                     _isDarkTheme = themeValue;
-                    changeColor();
                     _saveTheme(_isDarkTheme);
                   });
                 },
@@ -150,7 +150,7 @@ class _AppHomeState extends State<MyHomePage> {
           ),
         ),
         body: new DefaultTabController(
-          length: 5,
+          length: 4,
           child: new Scaffold(
             appBar: new AppBar(
               actions: <Widget>[],
