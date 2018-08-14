@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 new ListTile(
                   onTap: () {
-                    print('hello');
+                    DefaultTabController.of(context).animateTo(1);
                   },
                   leading: Icon(
                     Icons.access_time,
@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
                     onPressed: () {
-                      print('hello');
+                      DefaultTabController.of(context).animateTo(1);
                     },
                   ),
                   title: Text(
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 new ListTile(
                   onTap: () {
-                    print('hello');
+                    DefaultTabController.of(context).animateTo(2);
                   },
                   leading: Icon(
                     Icons.build,
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
                     onPressed: () {
-                      print('hello');
+                      DefaultTabController.of(context).animateTo(2);
                     },
                   ),
                   title: new Text(
@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 ListTile(
                   onTap: () {
-                    print('hello');
+                    DefaultTabController.of(context).animateTo(3);
                   },
                   leading: Icon(
                     Icons.attach_money,
@@ -138,7 +138,7 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
                     onPressed: () {
-                      print('hello');
+                      DefaultTabController.of(context).animateTo(3);
                     },
                   ),
                   title: new Text(
