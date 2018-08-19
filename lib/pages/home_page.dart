@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) => new ListView(
         children: [
           Card(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).cardColor,
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   title: Text(
-                    '00:00',
+                    '00:00:00',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                         fontSize: 40.0, fontWeight: FontWeight.bold),
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Card(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).cardColor,
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Card(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).cardColor,
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[

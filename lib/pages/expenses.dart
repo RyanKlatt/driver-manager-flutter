@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/create_expense.dart';
+
 class Expenses extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -76,18 +78,18 @@ class _ExpensesState extends State<Expenses> {
                   child: new Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                new Icon(Icons.attach_money,
-                    size: 150.0, color: Colors.black12),
-                new Text('No Expenses Recorded!')
-              ],
+              children: <Widget>[new Text('No Expenses Recorded!')],
             ))),
       floatingActionButton: new FloatingActionButton(
           onPressed: () {
-            setState(() {
-              _expenses.add('another test');
-            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => ExpenseCreatePage(),
+              ),
+            );
           },
+          heroTag: null,
           child: Icon(Icons.add),
           foregroundColor: Colors.white,
           backgroundColor: Theme.of(context).primaryColor),

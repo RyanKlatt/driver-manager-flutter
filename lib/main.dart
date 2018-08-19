@@ -16,7 +16,8 @@ class DriverManager extends StatelessWidget {
         defaultBrightness: Brightness.light,
         data: (brightness) => new ThemeData(
               primaryColor: Colors.indigo[700],
-              accentColor: Colors.white,
+              cardColor: Colors.white,
+              accentColor: Colors.indigo,
               primaryColorDark: Colors.indigo[900],
               brightness: brightness,
             ),
@@ -56,13 +57,15 @@ class _AppHomeState extends State<MyHomePage> {
       _isDarkTheme = (prefs.getBool('isDark') ?? false);
       if (_isDarkTheme == false) {
         DynamicTheme.of(context).setThemeData(new ThemeData(
-            accentColor: Colors.white,
+            accentColor: Colors.indigo,
+            cardColor: Colors.white,
             brightness: Brightness.light,
             primaryColor: Colors.indigo[700],
             primaryColorDark: Colors.indigo[900]));
       } else {
         DynamicTheme.of(context).setThemeData(new ThemeData(
-            accentColor: Colors.grey[800],
+            accentColor: Colors.indigo,
+            cardColor: Colors.grey[800],
             brightness: Brightness.dark,
             primaryColor: Colors.indigo[700],
             primaryColorDark: Colors.indigo[900]));
@@ -83,7 +86,10 @@ class _AppHomeState extends State<MyHomePage> {
 
   void changeColor() {
     DynamicTheme.of(context).setThemeData(new ThemeData(
-        accentColor: Theme.of(context).accentColor == Colors.white
+        accentColor: Theme.of(context).accentColor == Colors.indigo
+            ? Colors.grey[350]
+            : Colors.indigo,
+        cardColor: Theme.of(context).cardColor == Colors.white
             ? Colors.grey[800]
             : Colors.white,
         brightness: Theme.of(context).brightness == Brightness.light

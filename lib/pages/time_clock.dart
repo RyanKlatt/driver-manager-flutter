@@ -29,7 +29,7 @@ class _TimeClockState extends State<TimeClock> {
                   print('hello');
                 },
                 title: Text(
-                  '00:00',
+                  '00:00:00',
                   textAlign: TextAlign.center,
                   style: new TextStyle(
                       fontSize: 40.0, fontWeight: FontWeight.bold),
