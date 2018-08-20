@@ -64,7 +64,7 @@ class _AppHomeState extends State<MyHomePage> {
             primaryColorDark: Colors.indigo[900]));
       } else {
         DynamicTheme.of(context).setThemeData(new ThemeData(
-            accentColor: Colors.indigo,
+            accentColor: Colors.grey[350],
             cardColor: Colors.grey[800],
             brightness: Brightness.dark,
             primaryColor: Colors.indigo[700],

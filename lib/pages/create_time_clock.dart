@@ -17,6 +17,10 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
   var clockOutController = new TextEditingController();
   var dateController = new TextEditingController();
 
+  String dateValue;
+  String clockInValue;
+  String clockOutValue;
+
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
