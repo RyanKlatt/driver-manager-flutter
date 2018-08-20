@@ -44,7 +44,7 @@ class _ExpenseCreateState extends State<ExpenseCreatePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Add Maintenance'),
+        title: new Text('Add Expense'),
         centerTitle: true,
       ),
       body: new Container(

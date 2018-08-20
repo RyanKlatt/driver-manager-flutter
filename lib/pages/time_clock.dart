@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/create_time_clock.dart';
+
 class TimeClock extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -9,6 +11,53 @@ class TimeClock extends StatefulWidget {
 }
 
 class _TimeClockState extends State<TimeClock> {
+  List<String> _clockRecords = [];
+
+  Widget _buildExpense(BuildContext context, int index) {
+    return Card(
+      child: new Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          new ListTile(
+            onTap: () {
+              print('hello');
+            },
+            leading: IconButton(
+              icon: Icon(
+                Icons.edit,
+                size: 40.0,
+              ),
+              onPressed: () {
+                print('hello');
+              },
+            ),
+            trailing: IconButton(
+              icon: Icon(
+                Icons.delete,
+                size: 40.0,
+              ),
+              onPressed: () {
+                print('hello');
+              },
+            ),
+            title: Text(
+              _clockRecords[index],
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                fontSize: 19.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: Text(
+              r'100,000 miles - $119.00',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,54 +68,28 @@ class _TimeClockState extends State<TimeClock> {
           "Time Clock",
         ),
       ),
-      body: ListView(children: [
-        Card(
-          child: new Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              new ListTile(
-                onTap: () {
-                  print('hello');
-                },
-                title: Text(
-                  '00:00:00',
-                  textAlign: TextAlign.center,
-                  style: new TextStyle(
-                      fontSize: 40.0, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  'You are currently clocked out!',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              new ButtonTheme.bar(
-                // make buttons use the appropriate styles for cards
-                child: new ButtonBar(
-                  alignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    new RaisedButton(
-                      child: new Text(
-                        'Clock In',
-                        style: new TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 17.0),
-                      ),
-                      textColor: Colors.white,
-                      color: Colors.green[700],
-                      splashColor: Colors.green,
-                      padding: EdgeInsets.symmetric(horizontal: 50.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0)),
-                      onPressed: () {/* ... */},
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ]),
+      body: _clockRecords.length > 0
+          ? ListView.builder(
+              itemBuilder: _buildExpense,
+              itemCount: _clockRecords.length,
+            )
+          : Center(
+              child: Container(
+                  child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[new Text('No Times Recorded!')],
+            ))),
       floatingActionButton: new FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => TimeClockCreatePage(),
+              ),
+            );
+          },
+          heroTag: null,
           child: Icon(Icons.add),
           foregroundColor: Colors.white,
           backgroundColor: Theme.of(context).primaryColor),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../pages/create_time_clock.dart';
+import '../pages/create_inspection.dart';
+import '../pages/create_expense.dart';
+
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -32,7 +36,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   title: Text(
-                    '00:00:00',
+                    '00:00',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                         fontSize: 40.0, fontWeight: FontWeight.bold),
@@ -114,7 +118,15 @@ class _HomeState extends State<Home> {
                         padding: EdgeInsets.symmetric(horizontal: 25.0),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0)),
-                        onPressed: () {/* ... */},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  InspectionCreatePage(),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -169,7 +181,15 @@ class _HomeState extends State<Home> {
                         padding: EdgeInsets.symmetric(horizontal: 35.0),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0)),
-                        onPressed: () {/* ... */},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  ExpenseCreatePage(),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -177,32 +197,6 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          /*Card(
-            color: Theme.of(context).accentColor,
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new ListTile(
-                  onTap: () {
-                    print('hello');
-                  },
-                  leading: Icon(Icons.calendar_today, size: 40.0),
-                  trailing: IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () {
-                      print('hello');
-                    },
-                  ),
-                  title: new Text(
-                    'Calendar',
-                    style: new TextStyle(
-                        fontSize: 19.0, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: const Text('Meeting - 8/8/2018'),
-                ),
-              ],
-            ),
-          ),*/
         ],
       );
 }
