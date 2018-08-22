@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../pages/create_time_clock.dart';
 
@@ -11,10 +12,9 @@ class TimeClock extends StatefulWidget {
 }
 
 class _TimeClockState extends State<TimeClock> {
-  List<String> _clockRecords = [];
-
-  Widget _buildExpense(BuildContext context, int index) {
+  Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
     return Card(
+      key: new ValueKey(document.documentID),
       child: new Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -41,7 +41,7 @@ class _TimeClockState extends State<TimeClock> {
               },
             ),
             title: Text(
-              _clockRecords[index],
+              document['date'],
               textAlign: TextAlign.center,
               style: new TextStyle(
                 fontSize: 19.0,
@@ -49,7 +49,7 @@ class _TimeClockState extends State<TimeClock> {
               ),
             ),
             subtitle: Text(
-              r'100,000 miles - $119.00',
+              r'8.45am - 2:20pm | 8hrs 5 mins',
               textAlign: TextAlign.center,
             ),
           ),
@@ -68,18 +68,16 @@ class _TimeClockState extends State<TimeClock> {
           "Time Clock",
         ),
       ),
-      body: _clockRecords.length > 0
-          ? ListView.builder(
-              itemBuilder: _buildExpense,
-              itemCount: _clockRecords.length,
-            )
-          : Center(
-              child: Container(
-                  child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[new Text('No Times Recorded!')],
-            ))),
+      body: new StreamBuilder(
+          stream: Firestore.instance.collection('timeClock').snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) return const Text('Loading...');
+            return new ListView.builder(
+              itemCount: snapshot.data.documents.length,
+              itemBuilder: (context, index) =>
+                  _buildListItem(context, snapshot.data.documents[index]),
+            );
+          }),
       floatingActionButton: new FloatingActionButton(
           onPressed: () {
             Navigator.push(

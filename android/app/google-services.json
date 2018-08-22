@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "910029415656",
+    "firebase_url": "https://fig-inc.firebaseio.com",
+    "project_id": "fig-inc",
+    "storage_bucket": "fig-inc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910029415656:android:acbdad9e09fceea1",
+        "android_client_info": {
+          "package_name": "com.example.drivermanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910029415656-356ui7hcphgqfd699avqa734h4ep2i03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTkxjf_505BVhHbhAD8P3RgfQJvB_9eFI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

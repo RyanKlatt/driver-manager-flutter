@@ -106,14 +106,14 @@ class _HomeState extends State<Home> {
                   child: new ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new FlatButton(
+                      new RaisedButton(
+                        color: Theme.of(context).primaryColor,
                         child: new Text(
                           'Add Inspection',
                           style: new TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 17.0),
                         ),
                         textColor: Colors.white,
-                        color: Colors.grey[600],
                         splashColor: Colors.grey[400],
                         padding: EdgeInsets.symmetric(horizontal: 25.0),
                         shape: RoundedRectangleBorder(
@@ -169,13 +169,13 @@ class _HomeState extends State<Home> {
                   child: new ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new FlatButton(
+                      new RaisedButton(
+                        color: Theme.of(context).primaryColor,
                         child: new Text(
                           'Add Expense',
                           style: new TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 17.0),
                         ),
-                        color: Colors.grey[600],
                         textColor: Colors.white,
                         splashColor: Colors.grey[400],
                         padding: EdgeInsets.symmetric(horizontal: 35.0),
