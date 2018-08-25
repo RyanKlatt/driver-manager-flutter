@@ -65,10 +65,10 @@ class _AppHomeState extends State<MyHomePage> {
       } else {
         DynamicTheme.of(context).setThemeData(new ThemeData(
             accentColor: Colors.grey[350],
-            cardColor: Colors.grey[800],
+            cardColor: Colors.grey[700],
             brightness: Brightness.dark,
-            primaryColor: Colors.indigo[700],
-            primaryColorDark: Colors.indigo[900]));
+            primaryColor: Colors.grey[800],
+            primaryColorDark: Colors.grey[900]));
       }
     });
     print(_isDarkTheme);
@@ -90,13 +90,18 @@ class _AppHomeState extends State<MyHomePage> {
             ? Colors.grey[350]
             : Colors.indigo,
         cardColor: Theme.of(context).cardColor == Colors.white
-            ? Colors.grey[800]
+            ? Colors.grey[700]
             : Colors.white,
         brightness: Theme.of(context).brightness == Brightness.light
             ? Brightness.dark
             : Brightness.light,
-        primaryColor: Colors.indigo[700],
-        primaryColorDark: Colors.indigo[900]));
+        primaryColor: Theme.of(context).primaryColor == Colors.indigo[700]
+            ? Colors.grey[800]
+            : Colors.indigo[700],
+        primaryColorDark:
+            Theme.of(context).primaryColorDark == Colors.indigo[900]
+                ? Colors.grey[900]
+                : Colors.indigo[900]));
   }
 
   @override
