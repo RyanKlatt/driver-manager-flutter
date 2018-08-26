@@ -5,7 +5,6 @@ class InspectionCreatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColorDark,
           centerTitle: true,
           title: Text(
             "Add Inspection",
