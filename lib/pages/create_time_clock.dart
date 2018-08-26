@@ -17,6 +17,12 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
   var clockOutController = new TextEditingController();
   var dateController = new TextEditingController();
 
+  @override
+  void initState() {
+    dateController.text = '${new DateFormat.yMd().format((_date))}';
+    return super.initState();
+  }
+
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
@@ -81,6 +87,7 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
       body: new Container(
         padding: new EdgeInsets.all(32.0),
         child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             GestureDetector(
                 onTap: () => _selectDate(context),
@@ -134,9 +141,12 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
             RaisedButton(
               color: Theme.of(context).primaryColor,
               textColor: Colors.white,
-              child: Text('Add'),
+              child: Text(
+                'Save',
+                style: TextStyle(fontSize: 20.0),
+              ),
               onPressed: () {},
-            )
+            ),
           ],
         ),
       ),
