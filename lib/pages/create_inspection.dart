@@ -13,15 +13,26 @@ class InspectionCreatePage extends StatefulWidget {
 class _InspectionCreateState extends State<InspectionCreatePage> {
   DateTime _date = new DateTime.now();
   TimeOfDay _time = new TimeOfDay.now();
+
   var inspectionTimeController = new TextEditingController();
   var dateController = new TextEditingController();
+  var truckController = new TextEditingController();
+
   String typeValue;
+  String issueValue;
+
+  bool _isChecked = false;
+
+  int _radioValue = 0;
+
+  bool _isVisible = false;
 
   @override
   void initState() {
     super.initState();
 
     dateController.text = '${new DateFormat.yMd().format((_date))}';
+    truckController.text = '310040';
     Future.delayed(Duration(milliseconds: 100)).then((_) {
       inspectionTimeController.text = '${_time.format(context)}';
     });
@@ -64,6 +75,34 @@ class _InspectionCreateState extends State<InspectionCreatePage> {
     }
   }
 
+  void _handleRadioValueChange(int value) {
+    setState(() {
+      _radioValue = value;
+      _isVisible = !_isVisible;
+    });
+  }
+
+  _buildExpansionTile() {
+    return DropdownButtonHideUnderline(
+      child: new DropdownButton<String>(
+        hint: Text('Select Truck Issues'),
+        style: TextStyle(fontSize: 20.0, color: Theme.of(context).accentColor),
+        value: issueValue,
+        onChanged: (String newValue) {
+          setState(() {
+            issueValue = newValue;
+          });
+        },
+        items: <String>['Engine', 'Transmission', 'Clutch'].map((String value) {
+          return new DropdownMenuItem<String>(
+            value: value,
+            child: new Text(value),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -73,8 +112,7 @@ class _InspectionCreateState extends State<InspectionCreatePage> {
       ),
       body: new Container(
         padding: new EdgeInsets.all(32.0),
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: new ListView(
           children: <Widget>[
             GestureDetector(
                 onTap: () => _selectDate(context),
@@ -84,12 +122,9 @@ class _InspectionCreateState extends State<InspectionCreatePage> {
                         fontSize: 20.0, color: Theme.of(context).accentColor),
                     controller: dateController,
                     decoration: InputDecoration(
-                        labelText: 'Date',
-                        labelStyle: TextStyle(fontSize: 20.0),
-                        icon: Icon(
-                          Icons.date_range,
-                          size: 40.0,
-                        )),
+                      labelText: 'Date',
+                      labelStyle: TextStyle(fontSize: 20.0),
+                    ),
                   ),
                 )),
             GestureDetector(
@@ -100,16 +135,23 @@ class _InspectionCreateState extends State<InspectionCreatePage> {
                         fontSize: 20.0, color: Theme.of(context).accentColor),
                     controller: inspectionTimeController,
                     decoration: InputDecoration(
-                        labelText: 'Time',
-                        labelStyle: TextStyle(fontSize: 20.0),
-                        icon: Icon(
-                          Icons.access_time,
-                          size: 40.0,
-                        )),
+                      labelText: 'Time',
+                      labelStyle: TextStyle(fontSize: 20.0),
+                    ),
                   ),
                 )),
+            TextField(
+              keyboardType: TextInputType.number,
+              style: TextStyle(
+                  fontSize: 20.0, color: Theme.of(context).accentColor),
+              controller: truckController,
+              decoration: InputDecoration(
+                labelText: 'Truck #',
+                labelStyle: TextStyle(fontSize: 20.0),
+              ),
+            ),
             SizedBox(height: 10.0),
-            Center(
+            DropdownButtonHideUnderline(
               child: new DropdownButton<String>(
                 hint: Text('Inspection Type'),
                 style: TextStyle(
@@ -129,6 +171,32 @@ class _InspectionCreateState extends State<InspectionCreatePage> {
                 }).toList(),
               ),
             ),
+            TextField(
+              keyboardType: TextInputType.number,
+              style: TextStyle(
+                  fontSize: 20.0, color: Theme.of(context).accentColor),
+              decoration: InputDecoration(
+                labelText: 'Odometer',
+                labelStyle: TextStyle(fontSize: 20.0),
+              ),
+            ),
+            SizedBox(height: 10.0),
+            new Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
+              new Text('Any issues with truck?'),
+              new Radio(
+                value: 0,
+                groupValue: _radioValue,
+                onChanged: _handleRadioValueChange,
+              ),
+              new Text('No'),
+              new Radio(
+                value: 1,
+                groupValue: _radioValue,
+                onChanged: _handleRadioValueChange,
+              ),
+              new Text('Yes'),
+            ]),
+            _isVisible ? _buildExpansionTile() : new SizedBox(height: 10.0),
             SizedBox(height: 10.0),
             RaisedButton(
               color: Theme.of(context).primaryColor,
