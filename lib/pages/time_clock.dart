@@ -49,7 +49,7 @@ class _TimeClockState extends State<TimeClock> {
               ),
             ),
             subtitle: Text(
-              r'8.45am - 2:20pm | 8hrs 5 mins',
+              document['clockInTime'] + ' - ' + document['clockOutTime'],
               textAlign: TextAlign.center,
             ),
           ),
