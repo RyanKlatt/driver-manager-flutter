@@ -97,12 +97,9 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
                         fontSize: 20.0, color: Theme.of(context).accentColor),
                     controller: dateController,
                     decoration: InputDecoration(
-                        labelText: 'Date',
-                        labelStyle: TextStyle(fontSize: 20.0),
-                        icon: Icon(
-                          Icons.date_range,
-                          size: 40.0,
-                        )),
+                      labelText: 'Date',
+                      labelStyle: TextStyle(fontSize: 20.0),
+                    ),
                   ),
                 )),
             GestureDetector(
@@ -113,12 +110,9 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
                         fontSize: 20.0, color: Theme.of(context).accentColor),
                     controller: clockInController,
                     decoration: InputDecoration(
-                        labelText: 'Clock In Time',
-                        labelStyle: TextStyle(fontSize: 20.0),
-                        icon: Icon(
-                          Icons.timer,
-                          size: 40.0,
-                        )),
+                      labelText: 'Clock In Time',
+                      labelStyle: TextStyle(fontSize: 20.0),
+                    ),
                   ),
                 )),
             GestureDetector(
@@ -129,16 +123,14 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
                         fontSize: 20.0, color: Theme.of(context).accentColor),
                     controller: clockOutController,
                     decoration: InputDecoration(
-                        labelText: 'Clock Out Time',
-                        labelStyle: TextStyle(fontSize: 20.0),
-                        icon: Icon(
-                          Icons.timer_off,
-                          size: 40.0,
-                        )),
+                      labelText: 'Clock Out Time',
+                      labelStyle: TextStyle(fontSize: 20.0),
+                    ),
                   ),
                 )),
             SizedBox(height: 10.0),
             RaisedButton(
+              padding: EdgeInsets.all(10.0),
               color: Theme.of(context).primaryColor,
               textColor: Colors.white,
               child: Text(

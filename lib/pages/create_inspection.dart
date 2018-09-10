@@ -422,6 +422,7 @@ class _InspectionCreateState extends State<InspectionCreatePage> {
             _isVisible ? _buildExpansionTile() : new SizedBox(height: 10.0),
             SizedBox(height: 10.0),
             RaisedButton(
+              padding: EdgeInsets.all(10.0),
               color: Theme.of(context).primaryColor,
               textColor: Colors.white,
               child: Text(
