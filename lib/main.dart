@@ -3,6 +3,7 @@ import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'pages/employee_dashboard.dart';
+import 'pages/admin_dashboard.dart';
 
 void main() => runApp(new DriverManager());
 
@@ -157,6 +158,6 @@ class _AppHomeState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: new EmployeeDashboardPage());
+        body: new AdminDashboardPage());
   }
 }
