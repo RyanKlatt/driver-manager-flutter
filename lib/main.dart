@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'pages/home_page.dart';
-import 'pages/time_clock.dart';
-import 'pages/maintenance.dart';
-import 'pages/expenses.dart';
+import 'pages/employee_dashboard.dart';
 
 void main() => runApp(new DriverManager());
 
@@ -160,30 +157,6 @@ class _AppHomeState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: new DefaultTabController(
-          length: 4,
-          child: new Scaffold(
-            appBar: new AppBar(
-              actions: <Widget>[],
-              title: new TabBar(
-                tabs: [
-                  new Tab(icon: new Icon(Icons.home)),
-                  new Tab(icon: new Icon(Icons.access_time)),
-                  new Tab(icon: new Icon(Icons.build)),
-                  new Tab(icon: new Icon(Icons.attach_money)),
-                ],
-                indicatorColor: Colors.white,
-              ),
-            ),
-            body: new TabBarView(
-              children: [
-                new Home(),
-                new TimeClock(),
-                new Maintenance(),
-                new Expenses(),
-              ],
-            ),
-          ),
-        ));
+        body: new EmployeeDashboardPage());
   }
 }
