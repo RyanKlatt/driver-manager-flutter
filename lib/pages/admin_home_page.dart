@@ -26,7 +26,7 @@ class _AdminHomeState extends State<AdminHome> {
                     DefaultTabController.of(context).animateTo(1);
                   },
                   leading: Icon(
-                    Icons.person,
+                    Icons.people,
                     size: 40.0,
                   ),
                   trailing: IconButton(
@@ -44,6 +44,9 @@ class _AdminHomeState extends State<AdminHome> {
                   subtitle: Text(
                     'On Clock: 5 | Off Clock: 20',
                     textAlign: TextAlign.center,
+                    style: new TextStyle(
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
               ],
@@ -74,9 +77,12 @@ class _AdminHomeState extends State<AdminHome> {
                     style: new TextStyle(
                         fontSize: 22.0, fontWeight: FontWeight.bold),
                   ),
-                  subtitle: const Text(
+                  subtitle: Text(
                     'Maintenance Issues: 0',
                     textAlign: TextAlign.center,
+                    style: new TextStyle(
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
               ],

@@ -25,7 +25,7 @@ class _AdminDashboardCreateState extends State<AdminDashboardPage> {
           title: new TabBar(
             tabs: [
               new Tab(icon: new Icon(Icons.home)),
-              new Tab(icon: new Icon(Icons.person)),
+              new Tab(icon: new Icon(Icons.people)),
               new Tab(icon: new Icon(Icons.local_shipping)),
             ],
             indicatorColor: Colors.white,

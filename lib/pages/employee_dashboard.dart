@@ -3,6 +3,7 @@ import 'home_page.dart';
 import 'time_clock.dart';
 import 'maintenance.dart';
 import 'expenses.dart';
+import 'management_contacts.dart';
 
 class EmployeeDashboardPage extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _EmployeeDashboardCreateState extends State<EmployeeDashboardPage> {
   @override
   Widget build(BuildContext context) {
     return new DefaultTabController(
-      length: 4,
+      length: 5,
       child: new Scaffold(
         appBar: new AppBar(
           actions: <Widget>[],
@@ -26,6 +27,7 @@ class _EmployeeDashboardCreateState extends State<EmployeeDashboardPage> {
               new Tab(icon: new Icon(Icons.access_time)),
               new Tab(icon: new Icon(Icons.build)),
               new Tab(icon: new Icon(Icons.attach_money)),
+              new Tab(icon: new Icon(Icons.people)),
             ],
             indicatorColor: Colors.white,
           ),
@@ -36,6 +38,7 @@ class _EmployeeDashboardCreateState extends State<EmployeeDashboardPage> {
             new TimeClock(),
             new Maintenance(),
             new Expenses(),
+            new ManagementContacts(),
           ],
         ),
       ),

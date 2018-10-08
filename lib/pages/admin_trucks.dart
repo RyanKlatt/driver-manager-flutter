@@ -23,19 +23,13 @@ class _TrucksState extends State<Trucks> {
               print('hello');
             },
             leading: IconButton(
-              icon: Icon(
-                Icons.edit,
-                size: 40.0,
-              ),
+              icon: Icon(Icons.local_shipping, size: 40.0),
               onPressed: () {
                 print('hello');
               },
             ),
             trailing: IconButton(
-              icon: Icon(
-                Icons.delete,
-                size: 40.0,
-              ),
+              icon: Icon(Icons.arrow_forward_ios),
               onPressed: () {
                 print('hello');
               },
@@ -44,15 +38,39 @@ class _TrucksState extends State<Trucks> {
               '310040',
               textAlign: TextAlign.center,
               style: new TextStyle(
-                fontSize: 19.0,
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Text(
-              document['clockInTime'] + ' - ' + document['clockOutTime'],
+              'Driver: Ryan Klatt | Route: 511',
               textAlign: TextAlign.center,
+              style: new TextStyle(
+                fontSize: 16.0,
+              ),
             ),
           ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    icon: Icon(
+                      Icons.attach_money,
+                      size: 35.0,
+                    ),
+                    onPressed: () {}),
+                IconButton(
+                    icon: Icon(
+                      Icons.build,
+                      size: 35.0,
+                      color: Colors.green,
+                    ),
+                    onPressed: () {})
+              ],
+            ),
+          ),
+          SizedBox(height: 10.0),
         ],
       ),
     );
@@ -66,6 +84,7 @@ class _TrucksState extends State<Trucks> {
         centerTitle: true,
         title: Text(
           "Trucks",
+          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: new StreamBuilder(

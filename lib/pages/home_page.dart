@@ -36,14 +36,17 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   title: Text(
-                    '00:00',
+                    '00:00:00',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
-                        fontSize: 40.0, fontWeight: FontWeight.bold),
+                        fontSize: 25.0, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
                     'You are currently clocked out!',
                     textAlign: TextAlign.center,
+                    style: new TextStyle(
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
@@ -94,11 +97,14 @@ class _HomeState extends State<Home> {
                     'Maintenance',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
-                        fontSize: 22.0, fontWeight: FontWeight.bold),
+                        fontSize: 25.0, fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text(
                     'Last Inspection - 7/31/2018',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
@@ -157,11 +163,14 @@ class _HomeState extends State<Home> {
                     'Expenses',
                     textAlign: TextAlign.center,
                     style: new TextStyle(
-                        fontSize: 22.0, fontWeight: FontWeight.bold),
+                        fontSize: 25.0, fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text(
                     'Last Expense - 7/28/2018',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
@@ -189,6 +198,66 @@ class _HomeState extends State<Home> {
                                   ExpenseCreatePage(),
                             ),
                           );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            color: Theme.of(context).cardColor,
+            child: new Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  onTap: () {
+                    DefaultTabController.of(context).animateTo(4);
+                  },
+                  leading: Icon(
+                    Icons.people,
+                    size: 40.0,
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.arrow_forward_ios),
+                    onPressed: () {
+                      DefaultTabController.of(context).animateTo(4);
+                    },
+                  ),
+                  title: new Text(
+                    'Contacts',
+                    textAlign: TextAlign.center,
+                    style: new TextStyle(
+                        fontSize: 25.0, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: const Text(
+                    'Managers on the clock: 1',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+                new ButtonTheme.bar(
+                  // make buttons use the appropriate styles for cards
+                  child: new ButtonBar(
+                    alignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new RaisedButton(
+                        color: Theme.of(context).primaryColor,
+                        child: new Text(
+                          'View Contacts',
+                          style: new TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 17.0),
+                        ),
+                        textColor: Colors.white,
+                        splashColor: Colors.grey[400],
+                        padding: EdgeInsets.symmetric(horizontal: 35.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6.0)),
+                        onPressed: () {
+                          DefaultTabController.of(context).animateTo(4);
                         },
                       ),
                     ],

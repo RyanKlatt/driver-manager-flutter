@@ -3,15 +3,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../pages/create_time_clock.dart';
 
-class TimeClock extends StatefulWidget {
+class ManagementContacts extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _TimeClockState();
+    return _ManagementContactsState();
   }
 }
 
-class _TimeClockState extends State<TimeClock> {
+class _ManagementContactsState extends State<ManagementContacts> {
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
     return Card(
       key: new ValueKey(document.documentID),
@@ -22,26 +22,18 @@ class _TimeClockState extends State<TimeClock> {
             onTap: () {
               print('hello');
             },
-            leading: IconButton(
-              icon: Icon(
-                Icons.edit,
-                size: 40.0,
-              ),
-              onPressed: () {
-                print('hello');
-              },
-            ),
+            leading: CircleAvatar(
+                radius: 30.0,
+                backgroundImage: new NetworkImage(
+                    'https://avatars0.githubusercontent.com/u/10793020?s=460&v=4')),
             trailing: IconButton(
-              icon: Icon(
-                Icons.delete,
-                size: 40.0,
-              ),
+              icon: Icon(Icons.arrow_forward_ios),
               onPressed: () {
                 print('hello');
               },
             ),
             title: Text(
-              document['date'],
+              'Ryan Klatt',
               textAlign: TextAlign.center,
               style: new TextStyle(
                 fontSize: 22.0,
@@ -49,13 +41,36 @@ class _TimeClockState extends State<TimeClock> {
               ),
             ),
             subtitle: Text(
-              document['clockInTime'] + ' - ' + document['clockOutTime'],
-              textAlign: TextAlign.center,
+              'Route: 511 | Truck: 310040',
               style: new TextStyle(
                 fontSize: 16.0,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    icon: Icon(
+                      Icons.call,
+                      size: 35.0,
+                    ),
+                    onPressed: () {}),
+                IconButton(
+                    icon: Icon(Icons.message, size: 35.0), onPressed: () {}),
+                IconButton(
+                    icon: Icon(
+                      Icons.access_time,
+                      size: 35.0,
+                      color: Colors.green,
+                    ),
+                    onPressed: () {})
+              ],
+            ),
+          ),
+          SizedBox(height: 10.0),
         ],
       ),
     );
@@ -68,7 +83,7 @@ class _TimeClockState extends State<TimeClock> {
         backgroundColor: Theme.of(context).primaryColorDark,
         centerTitle: true,
         title: Text(
-          "Time Clock",
+          "Contacts",
           style: TextStyle(fontSize: 24.0),
         ),
       ),
@@ -82,19 +97,6 @@ class _TimeClockState extends State<TimeClock> {
                   _buildListItem(context, snapshot.data.documents[index]),
             );
           }),
-      floatingActionButton: new FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) => TimeClockCreatePage(),
-              ),
-            );
-          },
-          heroTag: null,
-          child: Icon(Icons.add),
-          foregroundColor: Colors.white,
-          backgroundColor: Theme.of(context).primaryColor),
     );
   }
 }

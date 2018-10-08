@@ -44,13 +44,16 @@ class _ExpensesState extends State<Expenses> {
               _expenses[index],
               textAlign: TextAlign.center,
               style: new TextStyle(
-                fontSize: 19.0,
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Text(
               r'100,000 miles - $119.00',
               textAlign: TextAlign.center,
+              style: new TextStyle(
+                fontSize: 16.0,
+              ),
             ),
           ),
         ],
@@ -66,6 +69,7 @@ class _ExpensesState extends State<Expenses> {
         centerTitle: true,
         title: Text(
           "Expenses",
+          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: _expenses.length > 0

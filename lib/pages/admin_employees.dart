@@ -23,13 +23,11 @@ class _EmployeesState extends State<Employess> {
               print('hello');
             },
             leading: CircleAvatar(
+                radius: 30.0,
                 backgroundImage: new NetworkImage(
                     'https://avatars0.githubusercontent.com/u/10793020?s=460&v=4')),
             trailing: IconButton(
-              icon: Icon(
-                Icons.delete,
-                size: 40.0,
-              ),
+              icon: Icon(Icons.arrow_forward_ios),
               onPressed: () {
                 print('hello');
               },
@@ -38,15 +36,41 @@ class _EmployeesState extends State<Employess> {
               'Ryan Klatt',
               textAlign: TextAlign.center,
               style: new TextStyle(
-                fontSize: 19.0,
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Text(
-              document['clockInTime'] + ' - ' + document['clockOutTime'],
+              'Route: 511 | Truck: 310040',
+              style: new TextStyle(
+                fontSize: 16.0,
+              ),
               textAlign: TextAlign.center,
             ),
           ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    icon: Icon(
+                      Icons.call,
+                      size: 35.0,
+                    ),
+                    onPressed: () {}),
+                IconButton(
+                    icon: Icon(Icons.message, size: 35.0), onPressed: () {}),
+                IconButton(
+                    icon: Icon(
+                      Icons.access_time,
+                      size: 35.0,
+                      color: Colors.green,
+                    ),
+                    onPressed: () {})
+              ],
+            ),
+          ),
+          SizedBox(height: 10.0),
         ],
       ),
     );
@@ -60,6 +84,7 @@ class _EmployeesState extends State<Employess> {
         centerTitle: true,
         title: Text(
           "Employees",
+          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: new StreamBuilder(
