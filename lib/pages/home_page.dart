@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 new ListTile(
+                  isThreeLine: false,
                   onTap: () {
                     DefaultTabController.of(context).animateTo(1);
                   },
@@ -35,21 +36,16 @@ class _HomeState extends State<Home> {
                       DefaultTabController.of(context).animateTo(1);
                     },
                   ),
-                  title: Text(
-                    '00:00:00',
-                    textAlign: TextAlign.center,
-                    style: new TextStyle(
-                        fontSize: 25.0, fontWeight: FontWeight.bold),
-                  ),
+                  title: Text('00:00:00',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.w400)),
                   subtitle: Text(
                     'You are currently clocked out!',
                     textAlign: TextAlign.center,
-                    style: new TextStyle(
-                      fontSize: 16.0,
-                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
+                  padding: EdgeInsets.symmetric(vertical: 1.0),
                   // make buttons use the appropriate styles for cards
                   child: new ButtonBar(
                     alignment: MainAxisAlignment.center,
@@ -71,6 +67,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10.0),
               ],
             ),
           ),
@@ -80,6 +77,7 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 new ListTile(
+                  isThreeLine: false,
                   onTap: () {
                     DefaultTabController.of(context).animateTo(2);
                   },
@@ -93,21 +91,16 @@ class _HomeState extends State<Home> {
                       DefaultTabController.of(context).animateTo(2);
                     },
                   ),
-                  title: new Text(
-                    'Maintenance',
-                    textAlign: TextAlign.center,
-                    style: new TextStyle(
-                        fontSize: 25.0, fontWeight: FontWeight.bold),
-                  ),
+                  title: new Text('Maintenance',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.w400)),
                   subtitle: const Text(
                     'Last Inspection - 7/31/2018',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
+                  padding: EdgeInsets.symmetric(vertical: 1.0),
                   // make buttons use the appropriate styles for cards
                   child: new ButtonBar(
                     alignment: MainAxisAlignment.center,
@@ -137,6 +130,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10.0),
               ],
             ),
           ),
@@ -146,6 +140,7 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(
+                  isThreeLine: false,
                   onTap: () {
                     DefaultTabController.of(context).animateTo(3);
                   },
@@ -159,21 +154,16 @@ class _HomeState extends State<Home> {
                       DefaultTabController.of(context).animateTo(3);
                     },
                   ),
-                  title: new Text(
-                    'Expenses',
-                    textAlign: TextAlign.center,
-                    style: new TextStyle(
-                        fontSize: 25.0, fontWeight: FontWeight.bold),
-                  ),
+                  title: new Text('Expenses',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.w400)),
                   subtitle: const Text(
                     'Last Expense - 7/28/2018',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
+                  padding: EdgeInsets.symmetric(vertical: 1.0),
                   // make buttons use the appropriate styles for cards
                   child: new ButtonBar(
                     alignment: MainAxisAlignment.center,
@@ -203,6 +193,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10.0),
               ],
             ),
           ),
@@ -212,6 +203,7 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(
+                  isThreeLine: false,
                   onTap: () {
                     DefaultTabController.of(context).animateTo(4);
                   },
@@ -225,21 +217,16 @@ class _HomeState extends State<Home> {
                       DefaultTabController.of(context).animateTo(4);
                     },
                   ),
-                  title: new Text(
-                    'Contacts',
-                    textAlign: TextAlign.center,
-                    style: new TextStyle(
-                        fontSize: 25.0, fontWeight: FontWeight.bold),
-                  ),
+                  title: new Text('Contacts',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.w400)),
                   subtitle: const Text(
                     'Managers on the clock: 1',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
                   ),
                 ),
                 new ButtonTheme.bar(
+                  padding: EdgeInsets.symmetric(vertical: 1.0),
                   // make buttons use the appropriate styles for cards
                   child: new ButtonBar(
                     alignment: MainAxisAlignment.center,
@@ -263,6 +250,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10.0),
               ],
             ),
           ),

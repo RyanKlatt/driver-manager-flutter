@@ -27,24 +27,17 @@ class _ManagementContactsState extends State<ManagementContacts> {
                 backgroundImage: new NetworkImage(
                     'https://avatars0.githubusercontent.com/u/10793020?s=460&v=4')),
             trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
+              icon: Icon(Icons.access_time, size: 40.0, color: Colors.green),
+              tooltip: 'On the clock!',
               onPressed: () {
                 print('hello');
               },
             ),
-            title: Text(
-              'Ryan Klatt',
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            title: Text('Ryan Klatt',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w400)),
             subtitle: Text(
-              'Route: 511 | Truck: 310040',
-              style: new TextStyle(
-                fontSize: 16.0,
-              ),
+              'Manager',
               textAlign: TextAlign.center,
             ),
           ),
@@ -52,21 +45,17 @@ class _ManagementContactsState extends State<ManagementContacts> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.call,
+                        size: 30.0,
+                      ),
+                      onPressed: () {}),
+                ),
                 IconButton(
-                    icon: Icon(
-                      Icons.call,
-                      size: 35.0,
-                    ),
-                    onPressed: () {}),
-                IconButton(
-                    icon: Icon(Icons.message, size: 35.0), onPressed: () {}),
-                IconButton(
-                    icon: Icon(
-                      Icons.access_time,
-                      size: 35.0,
-                      color: Colors.green,
-                    ),
-                    onPressed: () {})
+                    icon: Icon(Icons.message, size: 30.0), onPressed: () {}),
               ],
             ),
           ),
@@ -84,7 +73,6 @@ class _ManagementContactsState extends State<ManagementContacts> {
         centerTitle: true,
         title: Text(
           "Contacts",
-          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: new StreamBuilder(

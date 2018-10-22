@@ -40,20 +40,12 @@ class _TimeClockState extends State<TimeClock> {
                 print('hello');
               },
             ),
-            title: Text(
-              document['date'],
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            title: Text(document['date'],
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w400)),
             subtitle: Text(
               document['clockInTime'] + ' - ' + document['clockOutTime'],
               textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 16.0,
-              ),
             ),
           ),
         ],
@@ -69,7 +61,6 @@ class _TimeClockState extends State<TimeClock> {
         centerTitle: true,
         title: Text(
           "Time Clock",
-          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: new StreamBuilder(

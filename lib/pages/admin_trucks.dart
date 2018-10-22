@@ -34,20 +34,12 @@ class _TrucksState extends State<Trucks> {
                 print('hello');
               },
             ),
-            title: Text(
-              '310040',
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            title: Text('310040',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w400)),
             subtitle: Text(
-              'Driver: Ryan Klatt | Route: 511',
+              'Ryan Klatt | Route 511',
               textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 16.0,
-              ),
             ),
           ),
           Container(
@@ -82,10 +74,7 @@ class _TrucksState extends State<Trucks> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColorDark,
         centerTitle: true,
-        title: Text(
-          "Trucks",
-          style: TextStyle(fontSize: 24.0),
-        ),
+        title: Text("Trucks"),
       ),
       body: new StreamBuilder(
           stream: Firestore.instance.collection('timeClock').snapshots(),

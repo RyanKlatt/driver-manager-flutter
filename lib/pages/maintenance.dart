@@ -40,20 +40,12 @@ class _MaintenanceState extends State<Maintenance> {
                 print('hello');
               },
             ),
-            title: Text(
-              _inspections[index],
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            title: Text(_inspections[index],
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w400)),
             subtitle: Text(
               r'100,000 miles - $119.00',
               textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 16.0,
-              ),
             ),
           ),
         ],
@@ -69,7 +61,6 @@ class _MaintenanceState extends State<Maintenance> {
         centerTitle: true,
         title: Text(
           "Maintenance",
-          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: _inspections.length > 0

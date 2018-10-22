@@ -32,19 +32,11 @@ class _EmployeesState extends State<Employess> {
                 print('hello');
               },
             ),
-            title: Text(
-              'Ryan Klatt',
-              textAlign: TextAlign.center,
-              style: new TextStyle(
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            title: Text('Ryan Klatt',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w400)),
             subtitle: Text(
-              'Route: 511 | Truck: 310040',
-              style: new TextStyle(
-                fontSize: 16.0,
-              ),
+              'Driver - Route 511',
               textAlign: TextAlign.center,
             ),
           ),
@@ -84,7 +76,6 @@ class _EmployeesState extends State<Employess> {
         centerTitle: true,
         title: Text(
           "Employees",
-          style: TextStyle(fontSize: 24.0),
         ),
       ),
       body: new StreamBuilder(

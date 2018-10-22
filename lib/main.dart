@@ -18,6 +18,7 @@ class DriverManager extends StatelessWidget {
               accentColor: Colors.indigo,
               primaryColorDark: Colors.indigo[900],
               brightness: brightness,
+              textTheme: TextTheme(subhead: TextStyle(fontSize: 20.0)),
             ),
         themedWidgetBuilder: (context, theme) {
           return new MaterialApp(
@@ -55,18 +56,22 @@ class _AppHomeState extends State<MyHomePage> {
       _isDarkTheme = (prefs.getBool('isDark') ?? false);
       if (_isDarkTheme == false) {
         DynamicTheme.of(context).setThemeData(new ThemeData(
-            accentColor: Colors.indigo,
-            cardColor: Colors.white,
-            brightness: Brightness.light,
-            primaryColor: Colors.indigo[700],
-            primaryColorDark: Colors.indigo[900]));
+          accentColor: Colors.indigo,
+          cardColor: Colors.white,
+          brightness: Brightness.light,
+          primaryColor: Colors.indigo[700],
+          primaryColorDark: Colors.indigo[900],
+          textTheme: TextTheme(subhead: TextStyle(fontSize: 20.0)),
+        ));
       } else {
         DynamicTheme.of(context).setThemeData(new ThemeData(
-            accentColor: Colors.grey[350],
-            cardColor: Colors.grey[700],
-            brightness: Brightness.dark,
-            primaryColor: Colors.grey[800],
-            primaryColorDark: Colors.grey[900]));
+          accentColor: Colors.grey[350],
+          cardColor: Colors.grey[700],
+          brightness: Brightness.dark,
+          primaryColor: Colors.grey[800],
+          primaryColorDark: Colors.grey[900],
+          textTheme: TextTheme(subhead: TextStyle(fontSize: 20.0)),
+        ));
       }
     });
     print(_isDarkTheme);
@@ -84,22 +89,23 @@ class _AppHomeState extends State<MyHomePage> {
 
   void changeColor() {
     DynamicTheme.of(context).setThemeData(new ThemeData(
-        accentColor: Theme.of(context).accentColor == Colors.indigo
-            ? Colors.grey[350]
-            : Colors.indigo,
-        cardColor: Theme.of(context).cardColor == Colors.white
-            ? Colors.grey[700]
-            : Colors.white,
-        brightness: Theme.of(context).brightness == Brightness.light
-            ? Brightness.dark
-            : Brightness.light,
-        primaryColor: Theme.of(context).primaryColor == Colors.indigo[700]
-            ? Colors.grey[800]
-            : Colors.indigo[700],
-        primaryColorDark:
-            Theme.of(context).primaryColorDark == Colors.indigo[900]
-                ? Colors.grey[900]
-                : Colors.indigo[900]));
+      accentColor: Theme.of(context).accentColor == Colors.indigo
+          ? Colors.grey[350]
+          : Colors.indigo,
+      cardColor: Theme.of(context).cardColor == Colors.white
+          ? Colors.grey[700]
+          : Colors.white,
+      brightness: Theme.of(context).brightness == Brightness.light
+          ? Brightness.dark
+          : Brightness.light,
+      primaryColor: Theme.of(context).primaryColor == Colors.indigo[700]
+          ? Colors.grey[800]
+          : Colors.indigo[700],
+      primaryColorDark: Theme.of(context).primaryColorDark == Colors.indigo[900]
+          ? Colors.grey[900]
+          : Colors.indigo[900],
+      textTheme: TextTheme(subhead: TextStyle(fontSize: 20.0)),
+    ));
   }
 
   @override
@@ -158,6 +164,6 @@ class _AppHomeState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: new EmployeeDashboardPage());
+        body: new AdminDashboardPage());
   }
 }
