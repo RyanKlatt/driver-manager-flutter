@@ -25,7 +25,7 @@ class _TimeClockState extends State<TimeClock> {
             leading: IconButton(
               icon: Icon(
                 Icons.edit,
-                size: 40.0,
+                size: 30.0,
               ),
               onPressed: () {
                 print('hello');
@@ -34,7 +34,7 @@ class _TimeClockState extends State<TimeClock> {
             trailing: IconButton(
               icon: Icon(
                 Icons.delete,
-                size: 40.0,
+                size: 30.0,
               ),
               onPressed: () {
                 print('hello');
@@ -44,7 +44,10 @@ class _TimeClockState extends State<TimeClock> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.w400)),
             subtitle: Text(
-              document['clockInTime'] + ' - ' + document['clockOutTime'],
+              document['clockInTime'] +
+                  ' - ' +
+                  document['clockOutTime'] +
+                  ' | 6.10 hrs',
               textAlign: TextAlign.center,
             ),
           ),

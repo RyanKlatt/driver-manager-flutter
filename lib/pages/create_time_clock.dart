@@ -81,7 +81,7 @@ class _TimeClockCreateState extends State<TimeClockCreatePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Add Time Record'),
+        title: new Text('Add Time Clock Record'),
         centerTitle: true,
       ),
       body: new Container(

@@ -164,6 +164,6 @@ class _AppHomeState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: new AdminDashboardPage());
+        body: new EmployeeDashboardPage());
   }
 }
